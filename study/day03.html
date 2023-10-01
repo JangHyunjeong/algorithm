@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>알고리즘 스터디</h1>
+    <h2>홀짝 구분하기</h2>
+    <h3>문제 설명</h3>
+    <p>
+      자연수 n이 입력으로 주어졌을 때 만약 n이 짝수이면 "n is even"을, 홀수이면
+      "n is odd"를 출력하는 코드를 작성해 보세요.
+    </p>
+    <h3>제한사항</h3>
+    <p>1 ≤ n ≤ 1,000</p>
+    <h3>입출력 예</h3>
+    <p>
+      입력 #1<br />
+      100<br />
+      <br />
+      출력 #1<br />
+      100 is even<br />
+
+      입력 #2<br />
+      1<br />
+      <br />
+      출력 #2<br />
+      1 is odd<br />
+    </p>
+    <script>
+      const evenTest = (n) => {
+        if (n % 2 === 0) {
+          return `${n} is even`;
+        } else {
+          return `${n} is odd`;
+        }
+      };
+
+      console.log(evenTest(100));
+      console.log(evenTest(1));
+    </script>
+  </body>
+</html>
