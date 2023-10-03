@@ -27,15 +27,21 @@
       출력 #1<br />
       AbCdEfG<br />
     </p>
+
+    <hr />
+    <h3>toLowerCase / toUpperCase</h3>
+    <p>
+      <b>string.toLowerCase()</b><br />
+      <b>string.toUpperCase()</b><br />
+      string을 소문자로 / 대문자로 변경해준다
+    </p>
     <script>
       const transCase = (str) => {
         let result = "";
         for (i = 0; i < str.length; i++) {
-          if (str[i].toUpperCase() === str[i]) {
-            result = result + str[i].toLowerCase();
-          } else {
-            result = result + str[i].toUpperCase();
-          }
+          str[i].toUpperCase() === str[i]
+            ? (result = result + str[i].toLowerCase())
+            : (result = result + str[i].toUpperCase());
         }
         return result;
       };
