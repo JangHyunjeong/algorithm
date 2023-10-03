@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>알고리즘 스터디</h1>
+    <h2>문자열 겹쳐쓰기</h2>
+    <h3>문제 설명</h3>
+    <p>
+      문자열 my_string, overwrite_string과 정수 s가 주어집니다. <br />문자열
+      my_string의 인덱스 s부터 overwrite_string의 길이만큼을 문자열
+      overwrite_string으로 바꾼 문자열을 return 하는 solution 함수를 작성해
+      주세요. <br />
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      my_string와 overwrite_string은 숫자와 알파벳으로 이루어져 있습니다.<br />
+      1 ≤ overwrite_string의 길이 ≤ my_string의 길이 ≤ 1,000<br />
+      0 ≤ s ≤ my_string의 길이 - overwrite_string의 길이<br />
+    </p>
+    <h3>입출력 예</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>my_string</th>
+          <th>overwrite_string</th>
+          <th>s</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"He11oWor1d"</td>
+          <td>"lloWorl"</td>
+          <td>2</td>
+          <td>"HelloWorld"</td>
+        </tr>
+        <tr>
+          <td>"Program29b8UYP"</td>
+          <td>"merS123"</td>
+          <td>7</td>
+          <td>"ProgrammerS123"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 1번의 my_string에서 인덱스 2부터 overwrite_string의 길이만큼에
+      해당하는 부분은 "11oWor1"이고 이를 "lloWorl"로 바꾼 "HelloWorld"를 return
+      합니다.
+    </p>
+    <h4>입출력 예 #2</h4>
+    <p>
+      예제 2번의 my_string에서 인덱스 7부터 overwrite_string의 길이만큼에
+      해당하는 부분은 "29b8UYP"이고 이를 "merS123"로 바꾼 "ProgrammerS123"를
+      return 합니다.
+    </p>
+    <hr />
+    <h3>문자열 자르기</h3>
+    <p>
+      문자열.substr(시작index, 길이)<br />
+      문자열.substring(시작index, 종료index - 1)<br />
+      * 음수 사용 시, 0 취급 <br />
+      문자열.slice(시작index, 종료index - 1)<br />
+      * 음수 사용 시, 뒤에서부터 index를 세어줌
+    </p>
+
+    <script>
+      const solution = (my_string, overwirte_string, s) => {
+        const result =
+          my_string.slice(0, s) +
+          overwirte_string +
+          my_string.slice(s + overwirte_string.length);
+        return result;
+      };
+
+      console.log(solution("He11oWor1d", "lloWorl", 2));
+      console.log(solution("Program29b8UYP", "merS123", 7));
+      console.log(solution("자바스크립트", "하이루", 2));
+    </script>
+  </body>
+</html>
