@@ -23,12 +23,19 @@
       입력 #1 : string 5<br />
       출력 #1 : stringstringstringstringstring
     </p>
+
+    <hr />
+    <h3>repeat() 문자열 반복</h3>
+    <p>
+      <b>문자열.repeat(반복횟수)</b><br />
+      문자열을 원하는 횟수만큼 반복해준다
+    </p>
     <script>
       const repeatStr = (str, n) => {
-        console.log(str.repeat(n));
+        return str.repeat(n);
       };
 
-      repeatStr("string", 3);
+      console.log(repeatStr("string", 3));
     </script>
   </body>
 </html>
