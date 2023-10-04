@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>알고리즘 스터디</h1>
+    <h2>문자열 섞기</h2>
+    <h3>문제 설명</h3>
+    <p>
+      길이가 같은 두 문자열 str1과 str2가 주어집니다.<br />
+
+      두 문자열의 각 문자가 앞에서부터 서로 번갈아가면서 한 번씩 등장하는
+      문자열을 만들어 return 하는 solution 함수를 완성해 주세요.<br />
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      1 ≤ str1의 길이 = str2의 길이 ≤ 10<br />
+      str1과 str2는 알파벳 소문자로 이루어진 문자열입니다.
+    </p>
+    <h3>입출력 예</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>str1</th>
+          <th>str2</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"aaaaa"</td>
+          <td>"bbbbb"</td>
+          <td>"ababababab"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+    <h3>for문 잘 활용하기</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      forEach, map 메소드 사용하면 더 간단할것이라 생각했었지만 오산. 두
+      메서드는 array에서만 동작한다. string에선 에러남! array로 변환하는
+      방법보다 for문이 더 간단하다 판단하여 for문을 사용하여 해당 문제를 풀었다!
+    </p>
+
+    <script>
+      const solution = (str1, str2) => {
+        let result = "";
+        for (i = 0; i < str1.length; i++) {
+          result += str1[i] + str2[i];
+        }
+        return result;
+      };
+
+      console.log(solution("aaaaa", "bbbbb"));
+      console.log(solution("가가가", "나나나"));
+    </script>
+  </body>
+</html>
