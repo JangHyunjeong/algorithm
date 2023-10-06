@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>알고리즘 스터디</h1>
+    <h2>더 크게 합치기</h2>
+    <h3>문제 설명</h3>
+    <p>
+      연산 ⊕는 두 정수에 대한 연산으로 두 정수를 붙여서 쓴 값을 반환합니다. 예를
+      들면 다음과 같습니다.<br />
+
+      12 ⊕ 3 = 123<br />
+      3 ⊕ 12 = 312<br />
+      양의 정수 a와 b가 주어졌을 때, a ⊕ b와 b ⊕ a 중 더 큰 값을 return 하는
+      solution 함수를 완성해 주세요.<br /><br />
+
+      단, a ⊕ b와 b ⊕ a가 같다면 a ⊕ b를 return 합니다.
+    </p>
+    <h3>제한사항</h3>
+    <p>1 ≤ a, b < 10,000</p>
+    <h3>입출력 예</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>9</td>
+          <td>91</td>
+          <td>991</td>
+        </tr>
+        <tr>
+          <td>89</td>
+          <td>8</td>
+          <td>898</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      a ⊕ b = 991 이고, b ⊕ a = 919 입니다. 둘 중 더 큰 값은 991 이므로 991을
+      return 합니다. 입출력 예 #2
+    </p>
+    <h4>입출력 예 #2</h4>
+    <p>
+      a ⊕ b = 898 이고, b ⊕ a = 889 입니다. 둘 중 더 큰 값은 898 이므로 898을
+      return 합니다.
+    </p>
+    <hr />
+    <h3>Math.max(1,2,3)</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      처음에는 비교 형 변환 후 비교 연산자를 이용해서 풀었다.<br />
+      다음과 같은 형태<br />
+      <em>
+        const solution = (a, b) => { return Number(`${a}${b}`) >
+        Number(`${b}${a}`) ? Number(`${a}${b}`) : Number(`${b}${a}`); }; </em
+      ><br />
+      그런데 다른 사람들 풀이를 참고해 보니, Math.max 를 이용하여 최대값을
+      출력할수 있으며, 이것이 더 간단하더라. 그래서 Math.max 메서드를 사용하여
+      풀이 했다. <br />
+      Number 사용하여 형변환은 안해도 정상적으로 작동하긴 하지만, 코드의
+      안정성을 높이기 위해 추가해 두었다.
+
+      <br /><br />
+      사용 예<br />
+      <b>Math.max(10, 20)</b><br />
+      <b>Math.max(...[10, 20])</b><br />
+      Math.max / min 운 배열이 아닌 주어진 값 중에서 최대/최솟값을 출력해주므로,
+    </p>
+
+    <script>
+      // const solution = (a, b) => {
+      //   return Number(`${a}${b}`) > Number(`${b}${a}`)
+      //     ? Number(`${a}${b}`)
+      //     : Number(`${b}${a}`);
+      // };
+
+      const solution = (a, b) => {
+        return Math.max(Number(`${a}${b}`), Number(`${b}${a}`));
+      };
+
+      console.log(solution(8, 89));
+    </script>
+  </body>
+</html>
