@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>알고리즘 스터디</h1>
+    <h2>주사위 게임 2</h2>
+    <h3>문제 설명</h3>
+    <p>
+      1부터 6까지 숫자가 적힌 주사위가 세 개 있습니다. <br />세 주사위를 굴렸을
+      때 나온 숫자를 각각 a, b, c라고 했을 때 얻는 점수는 다음과 같습니다.<br /><br />
+      세 숫자가 모두 다르다면 a + b + c 점을 얻습니다.<br />
+      세 숫자 중 어느 두 숫자는 같고 나머지 다른 숫자는 다르다면 (a + b + c) ×
+      (a2 + b2 + c2 )점을 얻습니다.<br />
+      세 숫자가 모두 같다면 (a + b + c) × (a2 + b2 + c2 ) × (a3 + b3 + c3 )점을
+      얻습니다.<br />
+      세 정수 a, b, c가 매개변수로 주어질 때, 얻는 점수를 return 하는 solution
+      함수를 작성해 주세요.<br />
+    </p>
+    <h3>제한사항</h3>
+    <p>a, b, c는 1이상 6이하의 정수입니다.</p>
+    <h3>입출력 예</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>c</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2</td>
+          <td>6</td>
+          <td>1</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>3</td>
+          <td>3</td>
+          <td>473</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+          <td>110592</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 1번에서 세 주사위 숫자가 모두 다르므로 2 + 6 + 1 = 9점을 얻습니다.
+      따라서 9를 return 합니다.
+    </p>
+
+    <h4>입출력 예 #2</h4>
+    <p>
+      예제 2번에서 두 주사위 숫자만 같으므로 (5 + 3 + 3) × (52 + 32 + 32 ) = 11
+      × 43 = 473점을 얻습니다. 따라서 473을 return 합니다.
+    </p>
+
+    <h4>입출력 예 #3</h4>
+    <p>
+      예제 3번에서 세 주사위 숫자가 모두 같으므로 (4 + 4 + 4) × (42 + 42 + 42 )
+      × (43 + 43 + 43 ) = 12 × 48 × 192 = 110,592점을 얻습니다. 따라서 110592를
+      return 합니다.
+    </p>
+
+    <hr />
+    <h3>조건 정리하기 및 제곱근 작성법</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      제곱근은 ** 넣어서 계산하면 된다!
+    </p>
+
+    <script>
+      const solution = (a, b, c) => {
+        let result = a + b + c;
+        (a === b || b === c || c === a) && (result *= a ** 2 + b ** 2 + c ** 2);
+        a === b && b === c && a === c && (result *= a ** 3 + b ** 3 + c ** 3);
+        return result;
+      };
+
+      console.log(solution(2, 6, 1));
+      console.log(solution(5, 3, 3));
+      console.log(solution(4, 4, 4));
+    </script>
+  </body>
+</html>
