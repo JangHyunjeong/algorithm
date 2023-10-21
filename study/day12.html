@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>알고리즘 스터디</h1>
+    <h2>이어 붙인 수</h2>
+    <h3>문제 설명</h3>
+    <p>
+      정수가 담긴 리스트 num_list가 주어집니다. num_list의 홀수만 순서대로 이어
+      붙인 수와 짝수만 순서대로 이어 붙인 수의 합을 return하도록 solution 함수를
+      완성해주세요.
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      2 ≤ num_list의 길이 ≤ 10 <br />
+      1 ≤ num_list의 원소 ≤ 9<br />
+      num_list에는 적어도 한 개씩의 짝수와 홀수가 있습니다.
+    </p>
+    <h3>입출력 예</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>num_list</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[3, 4, 5, 2, 1]</td>
+          <td>393</td>
+        </tr>
+        <tr>
+          <td>[5, 7, 8, 3]</td>
+          <td>581</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      홀수만 이어 붙인 수는 351이고 짝수만 이어 붙인 수는 42입니다. 두 수의 합은
+      393입니다.
+    </p>
+
+    <h4>입출력 예 #2</h4>
+    <p>
+      홀수만 이어 붙인 수는 573이고 짝수만 이어 붙인 수는 8입니다. 두 수의 합은
+      581입니다.
+    </p>
+
+    <hr />
+    <h3>조건 정리하기 및 제곱근 작성법</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      숫자의 형변환! String / Number를 이용하여 자유롭게 변환 가능하다!
+    </p>
+
+    <script>
+      const solution = (num_list) => {
+        let odd = "";
+        let even = "";
+        num_list.forEach((item) => {
+          item % 2 !== 0 ? (odd += String(item)) : (even += String(item));
+        });
+        return Number(odd) + Number(even);
+      };
+
+      console.log(solution([3, 4, 5, 2, 1]));
+      console.log(solution([5, 7, 8, 3]));
+    </script>
+  </body>
+</html>
