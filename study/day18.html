@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>원소들의 곱과 합</h1>
+    <h2>원소들의 곱과 합</h2>
+    <h3>문제 설명</h3>
+    <p>
+      정수가 담긴 리스트 num_list가 주어질 때, 모든 원소들의 곱이 모든 원소들의
+      합의 제곱보다 작으면 1을 크면 0을 return하도록 solution 함수를
+      완성해주세요.
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      2 ≤ num_list의 길이 ≤ 10<br />
+      1 ≤ num_list의 원소 ≤ 9<br />
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>num_list</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[3, 4, 5, 2, 1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>[5, 7, 8, 3]</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      모든 원소의 곱은 120, 합의 제곱은 225이므로 1을 return합니다.<br /><br />
+    </p>
+
+    <h4>입출력 예 #2</h4>
+    <p>모든 원소의 곱은 840, 합의 제곱은 529이므로 0을 return합니다.</p>
+
+    <hr />
+    <h3>reduce 함수 사용법</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      const multiple = arr.reduce((누산값, 현재돌고있는값, 인덱스) => { <br />
+      return (acc += cur); <br />
+      }, 초기값);<br />
+    </p>
+
+    <script>
+      // 원소들의 곱과 합
+      // const solution = (arr) => {
+      //   let multiple = 1;
+      //   let sumSquare = 0;
+
+      //   arr.forEach((num) => {
+      //     multiple *= num;
+      //     sumSquare += num;
+      //   });
+
+      //   return multiple > sumSquare ** 2 ? 0 : 1;
+      // };
+
+      const solution = (arr) => {
+        const multiple = arr.reduce((acc, cur) => {
+          return (acc *= cur);
+        }, 1);
+        const sumSquare =
+          arr.reduce((acc, cur) => {
+            return (acc += cur);
+          }, 1) ** 2;
+
+        return multiple > sumSquare ? 0 : 1;
+      };
+
+      console.log(solution([3, 4, 5, 2, 1]));
+      console.log(solution([5, 7, 8, 3]));
+    </script>
+  </body>
+</html>
