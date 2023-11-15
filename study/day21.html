@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>수 조작하기 2</h1>
+    <h2>수 조작하기 2</h2>
+    <h3>문제 설명</h3>
+    <p>
+      정수 배열 numLog가 주어집니다. 처음에 numLog[0]에서 부터 시작해 "w", "a",
+      "s", "d"로 이루어진 문자열을 입력으로 받아 순서대로 다음과 같은 조작을
+      했다고 합시다.<br /><br />
+      "w" : 수에 1을 더한다.<br />
+      "s" : 수에 1을 뺀다.<br />
+      "d" : 수에 10을 더한다.<br />
+      "a" : 수에 10을 뺀다.<br /><br />
+      그리고 매번 조작을 할 때마다 결괏값을 기록한 정수 배열이 numLog입니다.<br />
+      즉, numLog[i]는 numLog[0]로부터 총 i번의 조작을 가한 결과가 저장되어
+      있습니다.<br />
+
+      주어진 정수 배열 numLog에 대해 조작을 위해 입력받은 문자열을 return 하는
+      solution 함수를 완성해 주세요.<br />
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      2 ≤ numLog의 길이 ≤ 100,000<br />
+      -100,000 ≤ numLog[0] ≤ 100,000<br />
+      1 ≤ i ≤ numLog의 길이인 모든 i에 대해 |numLog[i] - numLog[i - 1]|의 값은 1
+      또는 10입니다.<br />
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>numLog</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[0, 1, 0, 10, 0, 1, 0, 10, 0, -1, -2, -1]</td>
+          <td>"wsdawsdassw"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      result인 "wsdawsdassw"를 따라 numLog[0]에서부터 시작해 조작을 하면
+      numLog의 값과 순서대로 일치합니다. 따라서 "wsdawsdassw"를 return
+      합니다.<br /><br />
+      Hint<br />
+      "수 조작하기 1" 문제의 n값이 numLog[0]에 해당하며, 이 문제에서 주어진
+      numLog에 따라 "수 조작하기 1" 문제의 control을 구하는 문제라고 이해할 수
+      있습니다.<br /><br />
+
+      입출력 예 #1은 "수 조작하기 1" 문제의 입출력 예 #1과 같은 예시이므로
+      참고하시기 바랍니다.
+      <br />
+      0 → 1 → 0 → 10 → 0 → 1 → 0 → 10 → 0 → -1 → -2 → -1
+      <br />
+    </p>
+
+    <hr />
+    <h3>forEach 와 삼항연산자 다양하게 써보기</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      result += 뒤에 조건식 붙일수 있다. <br />
+      forEach의 두번째 파라미터는 인덱스! <br />
+      삼항연산자 안에 삼항연산자 쓰는것 읽기 복잡하다 생각했는데, 막상 써보니
+      그냥 그대로 읽으면 되었구나..! ㅎㅎ
+    </p>
+
+    <script>
+      // 수 조작하기 2
+      const solution = (numLog) => {
+        let result = "";
+        for (let i = 0; i < numLog.length - 1; i++) {
+          result +=
+            numLog[i + 1] - numLog[i] === 1
+              ? "w"
+              : numLog[i + 1] - numLog[i] === -1
+              ? "s"
+              : numLog[i + 1] - numLog[i] === 10
+              ? "d"
+              : numLog[i + 1] - numLog[i] === -10 && "a";
+        }
+
+        // foreach 사용할 수도 있지만, 한바퀴 더 돌아가서 for 문으로 남김
+        // [...numLog].forEach((cur, idx) => {
+        //   result +=
+        //     numLog[idx + 1] - cur === 1
+        //       ? "w"
+        //       : numLog[idx + 1] - cur === -1
+        //       ? "s"
+        //       : numLog[idx + 1] - cur === 10
+        //       ? "d"
+        //       : numLog[idx + 1] - cur === -10
+        //       ? "a"
+        //       : "";
+        // });
+
+        return result;
+      };
+      console.log(solution([0, 1, 0, 10, 0, 1, 0, 10, 0, -1, -2, -1]));
+    </script>
+  </body>
+</html>
