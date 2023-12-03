@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>수열과 구간 쿼리 4</h1>
+    <h2>수열과 구간 쿼리 4</h2>
+    <h3>문제 설명</h3>
+    <p>
+      정수 배열 arr와 2차원 정수 배열 queries이 주어집니다. queries의 원소는
+      각각 하나의 query를 나타내며, [s, e, k] 꼴입니다.<br />
+
+      각 query마다 순서대로 s ≤ i ≤ e인 모든 i에 대해 i가 k의 배수이면 arr[i]에
+      1을 더합니다.<br />
+
+      위 규칙에 따라 queries를 처리한 이후의 arr를 return 하는 solution 함수를
+      완성해 주세요.<br />
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      1 ≤ arr의 길이 ≤ 1,000<br />
+      0 ≤ arr의 원소 ≤ 1,000,000<br />
+      1 ≤ queries의 길이 ≤ 1,000<br />
+      0 ≤ s ≤ e < arr의 길이<br />
+      0 ≤ k ≤ 5
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>arr</th>
+          <th>queries</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[0, 1, 2, 4, 3]</td>
+          <td>[[0, 4, 1],[0, 3, 2],[0, 3, 3]]</td>
+          <td>[3, 2, 4, 6, 4]</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      각 쿼리에 따라 arr가 다음과 같이 변합니다. <br />
+      <br />
+      arr <br />
+      [0, 1, 2, 4, 3] <br />
+      [1, 2, 3, 5, 4] <br />
+      [2, 2, 4, 5, 4] <br />
+      [3, 2, 4, 6, 4] <br />
+      <br />
+      따라서 [3, 2, 4, 6, 4]를 return 합니다.
+    </p>
+
+    <hr />
+    <h3>arr.forEach((item, idx) => idx)</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      forEach index 기준으로 돌릴수도 있다!
+    </p>
+
+    <script>
+      // 수열과 구간 쿼리 4
+      const solution = (arr, queries) => {
+        queries.forEach(([s, e, k]) => {
+          arr.forEach((item, idx) => {
+            if (idx >= s && idx <= e) {
+              if (idx % k === 0) arr[idx]++;
+            }
+          });
+        });
+        return arr;
+      };
+      console.log(
+        solution(
+          [0, 1, 2, 4, 3],
+          [
+            [0, 4, 1],
+            [0, 3, 2],
+            [0, 3, 3],
+          ]
+        )
+      );
+    </script>
+  </body>
+</html>
