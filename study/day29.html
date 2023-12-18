@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>간단한 논리 연산</h1>
+    <h2>간단한 논리 연산</h2>
+    <h3>문제 설명</h3>
+    <p>
+      boolean 변수 x1, x2, x3, x4가 매개변수로 주어질 때, 다음의 식의
+      true/false를 return 하는 solution 함수를 작성해 주세요.<br /><br />
+    </p>
+
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>x1</th>
+          <th>x2</th>
+          <th>x3</th>
+          <th>x4</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>true</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>true</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 1번의 x1, x2, x3, x4로 식을 계산하면 다음과 같습니다.
+      <br />
+      <br />
+      (x1 ∨ x2) ∧ (x3 ∨ x4) ≡ (F ∨ T) ∧ (T ∨ T) ≡ T ∧ T ≡ T<br />
+      <br />
+
+      따라서 true를 return 합니다.
+    </p>
+
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 2번의 x1, x2, x3, x4로 식을 계산하면 다음과 같습니다. <br />
+      <br />
+
+      (x1 ∨ x2) ∧ (x3 ∨ x4) ≡ (T ∨ F) ∧ (F ∨ F) ≡ T ∧ F ≡ F <br />
+      <br />
+
+      따라서 false를 return 합니다.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>x</th>
+          <th>y</th>
+          <th>x ∨ y</th>
+          <th>x ∧ y</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>T</td>
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>T</td>
+          <td>T</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>T</td>
+          <td>T</td>
+          <td>T</td>
+          <td>T</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+
+    <script>
+      // 간단한 논리 연산
+      function solution(x1, x2, x3, x4) {
+        return (x1 || x2) && (x3 || x4);
+      }
+      console.log(solution(false, true, true, true));
+      console.log(solution(true, false, false, false, false));
+    </script>
+  </body>
+</html>

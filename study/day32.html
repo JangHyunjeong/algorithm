@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>9로 나눈 나머지</h1>
+    <h2>9로 나눈 나머지</h2>
+    <h3>문제 설명</h3>
+    <p>
+      음이 아닌 정수를 9로 나눈 나머지는 그 정수의 각 자리 숫자의 합을 9로 나눈
+      나머지와 같은 것이 알려져 있습니다.<br />
+      이 사실을 이용하여 음이 아닌 정수가 문자열 number로 주어질 때, 이 정수를
+      9로 나눈 나머지를 return 하는 solution 함수를 작성해주세요.
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      1 ≤ number의 길이 ≤ 100,000<br />
+      number의 원소는 숫자로만 이루어져 있습니다.<br />
+      number는 정수 0이 아니라면 숫자 '0'으로 시작하지 않습니다.<br />
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>number</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"123"</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>"78720646226947352489"</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 1번의 number는 123으로 각 자리 숫자의 합은 6입니다. 6을 9로 나눈<br />
+      나머지는 6이고, 실제로 123 = 9 × 13 + 6입니다. 따라서 6을 return 합니다.
+    </p>
+
+    <h4>입출력 예 #2</h4>
+    <p>
+      예제 2번의 number는 78720646226947352489으로 각자리 숫자의 합은
+      101입니다.<br />
+      101을 9로 나눈 나머지는 2이고, 실제로 78720646226947352489 = 9 ×
+      8746738469660816943 + 2입니다. 따라서 2를 return 합니다.
+    </p>
+
+    <hr />
+    <h3>나머지 구하기</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      후후.. 이정도는 쉽게 풀수있지
+    </p>
+
+    <script>
+      // 9로 나눈 나머지
+      function solution(num) {
+        let sum = 0;
+        [...num].forEach((item) => {
+          sum += Number(item);
+        });
+        return sum % 9;
+      }
+      console.log(solution("123"));
+      console.log(solution("78720646226947352489"));
+    </script>
+  </body>
+</html>

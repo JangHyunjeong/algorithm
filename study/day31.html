@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>글자 이어 붙여 문자열 만들기</h1>
+    <h2>글자 이어 붙여 문자열 만들기</h2>
+    <h3>문제 설명</h3>
+    <p>
+      문자열 my_string과 정수 배열 index_list가 매개변수로 주어집니다.<br />
+      my_string의 index_list의 원소들에 해당하는 인덱스의 글자들을 순서대로 이어
+      붙인 문자열을 return 하는 solution 함수를 작성해 주세요
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      1 ≤ my_string의 길이 ≤ 1,000<br />
+      my_string의 원소는 영소문자로 이루어져 있습니다.<br />
+      1 ≤ index_list의 길이 ≤ 1,000<br />
+      0 ≤ index_list의 원소 < my_string의 길이
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>my_string</th>
+          <th>index_list</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"cvsgiorszzzmrpaqpe"</td>
+          <td>[16, 6, 5, 3, 12, 14, 11, 11, 17, 12, 7]</td>
+          <td>"programmers"</td>
+        </tr>
+        <tr>
+          <td>"zpiaz"</td>
+          <td>[1, 2, 0, 0, 3]</td>
+          <td>"pizza"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 1번의 my_string에서 인덱스 3, 5, 6, 11, 12, 14, 16, 17에 해당하는
+      글자는 각각 g, o, r, m, r, a, p, e이므로 my_string에서 index_list에
+      들어있는 원소에 해당하는 인덱스의 글자들은 각각 순서대로 p, r, o, g, r, a,
+      m, m, e, r, s입니다. 따라서 "programmers"를 return 합니다.
+    </p>
+
+    <h4>입출력 예 #2</h4>
+    <p>
+      예제 2번의 my_string에서 인덱스 0, 1, 2, 3에 해당하는 글자는 각각 z, p, i,
+      a이므로 my_string에서 index_list에 들어있는 원소에 해당하는 인덱스의
+      글자들은 각각 순서대로 p, i, z, z, a입니다. 따라서 "pizza"를 return
+      합니다.
+    </p>
+
+    <hr />
+    <h3>while문 만들기</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      후후.. n번째의 str 뽑아내기는 이제 잘 할수 있어
+    </p>
+
+    <script>
+      // 글자 이어 붙여 문자열 만들기
+      function solution(str, idx_list) {
+        let newStr = "";
+        idx_list.forEach((item) => {
+          newStr += str[item];
+        });
+        return newStr;
+      }
+      console.log(
+        solution("cvsgiorszzzmrpaqpe", [16, 6, 5, 3, 12, 14, 11, 11, 17, 12, 7])
+      );
+      console.log(solution("zpiaz", [1, 2, 0, 0, 3]));
+    </script>
+  </body>
+</html>

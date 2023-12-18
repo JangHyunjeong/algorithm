@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>문자열 여러 번 뒤집기</h1>
+    <h2>문자열 여러 번 뒤집기</h2>
+    <h3>문제 설명</h3>
+    <p>
+      문자열 my_string과 이차원 정수 배열 queries가 매개변수로 주어집니다.
+      queries의 원소는 [s, e] 형태로, my_string의 인덱스 s부터 인덱스 e까지를
+      뒤집으라는 의미입니다. my_string에 queries의 명령을 순서대로 처리한 후의
+      문자열을 return 하는 solution 함수를 작성해 주세요.
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      my_string은 영소문자로만 이루어져 있습니다.<br />
+      1 ≤ my_string의 길이 ≤ 1,000<br />
+      queries의 원소는 [s, e]의 형태로 0 ≤ s ≤ e < my_string의 길이를
+      만족합니다.<br />
+      1 ≤ queries의 길이 ≤ 1,000<br />
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>my_string</th>
+          <th>queries</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"rermgorpsam"</td>
+          <td>[[2, 3], [0, 7], [5, 9], [6, 10]]</td>
+          <td>"programmers"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 1번의 my_string은 "rermgorpsam"이고 주어진 queries를 순서대로
+      처리하면 다음과 같습니다.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>queries</th>
+          <th>my_string</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td>"rermgorpsam"</td>
+        </tr>
+        <tr>
+          <td>[2, 3]</td>
+          <td>"remrgorpsam"</td>
+        </tr>
+        <tr>
+          <td>[0, 7]</td>
+          <td>"progrmersam"</td>
+        </tr>
+        <tr>
+          <td>[5, 9]</td>
+          <td>"prograsremm"</td>
+        </tr>
+        <tr>
+          <td>[6, 10]</td>
+          <td>"programmers"</td>
+        </tr>
+      </thead>
+    </table>
+    <hr />
+    <h3>while문 만들기</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      while문 잘 사용안해봤는데, 이번 기회에 활용해 봤다.<br /><br />
+      while(반복조건) {<br />
+      반복할식<br />
+      }<br />
+      형태로 쓰면 된다
+    </p>
+
+    <script>
+      // 문자열 여러 번 뒤집기
+      // function solution(my_string, queries) {
+      //   queries.forEach(([a, b], idx) => {
+      //     let target = "";
+      //     let str_arr = [...my_string];
+
+      //     // 1. 수정할 영역 자르기
+      //     for (i = a; i <= b; i++) {
+      //       target += my_string[i];
+      //     }
+
+      //     // 2. 뒤집기
+      //     target = [...target].reverse();
+
+      //     // 3. my_string에 이어주기
+      //     str_arr.splice(a, b - a + 1, ...target);
+      //     my_string = str_arr.join("");
+      //   });
+      //   return my_string;
+      // }
+
+      // 문자열 여러 번 뒤집기
+      function solution(my_string, queries) {
+        queries.forEach(([a, b], idx) => {
+          let target = "";
+          let str_arr = [...my_string];
+
+          // 1. 수정할 영역 자르고 뒤집기
+          target = [...my_string.substring(a, b + 1)].reverse();
+
+          // 2. my_string에 이어주기
+          my_string = str_arr.splice(a, b - a + 1, ...target).join();
+        });
+        return my_string;
+      }
+
+      console.log(
+        solution("rermgorpsam", [
+          [2, 3],
+          [0, 7],
+          [5, 9],
+          [6, 10],
+        ])
+      );
+    </script>
+  </body>
+</html>
