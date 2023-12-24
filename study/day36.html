@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>문자열의 뒤의 n글자</h1>
+    <h2>문자열의 뒤의 n글자</h2>
+    <h3>문제 설명</h3>
+    <p>
+      문자열 my_string과 정수 n이 매개변수로 주어질 때, my_string의 뒤의 n글자로
+      이루어진 문자열을 return 하는 solution 함수를 작성해 주세요.
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      my_string은 숫자와 알파벳으로 이루어져 있습니다.<br />
+      1 ≤ my_string의 길이 ≤ 1,000<br />
+      1 ≤ n ≤ my_string의 길이
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>my_strings</th>
+          <th>n</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"ProgrammerS123"</td>
+          <td>11</td>
+          <td>"grammerS123"</td>
+        </tr>
+        <tr>
+          <td>"He110W0r1d"</td>
+          <td>5</td>
+          <td>"W0r1d"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 1번의 my_string에서 뒤의 11글자는 "grammerS123"이므로 이 문자열을
+      return 합니다.
+    </p>
+
+    <h4>입출력 예 #2</h4>
+    <p></p>
+    예제 2번의 my_string에서 뒤의 5글자는 "W0r1d"이므로 이 문자열을 return
+    합니다.
+
+    <hr />
+    <h3>slice</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      slice(-n)<br />
+      형태로 입력하면, 입력된 string or array 의 뒤에서 n글자 return 해준다
+    </p>
+
+    <script>
+      // 문자열의 뒤의 n글자
+      function solution(my_strings, n) {
+        return my_strings.slice(-n);
+      }
+
+      console.log(solution("ProgrammerS123", 11));
+      console.log(solution("He110W0r1d", 5));
+    </script>
+  </body>
+</html>
