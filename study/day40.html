@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>접두사인지 확인하기</h1>
+    <h2>접두사인지 확인하기</h2>
+    <h3>문제 설명</h3>
+    <p>
+      어떤 문자열에 대해서 접두사는 특정 인덱스까지의 문자열을 의미합니다.<br />
+      예를 들어, "banana"의 모든 접두사는 "b", "ba", "ban", "bana", "banan",
+      "banana"입니다.
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      1 ≤ my_string의 길이 ≤ 100<br />
+      1 ≤ is_prefix의 길이 ≤ 100<br />
+      my_string과 is_prefix는 영소문자로만 이루어져 있습니다.
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>my_strings</th>
+          <th>is_prefix</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"banana"</td>
+          <td>"ban"</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>"banana"</td>
+          <td>"nan"</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>"banana"</td>
+          <td>"abcd"</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>"banana"</td>
+          <td>"bananan"</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>
+      예제 1번에서 is_prefix가 my_string의 접두사이기 때문에 1을 return 합니다.
+    </p>
+
+    <h4>입출력 예 #2</h4>
+    <p>
+      예제 2번에서 is_prefix가 my_string의 접두사가 아니기 때문에 0을 return
+      합니다.
+    </p>
+
+    <h4>입출력 예 #3</h4>
+    <p>
+      예제 3번에서 is_prefix가 my_string의 접두사가 아니기 때문에 0을 return
+      합니다.
+    </p>
+
+    <h4>입출력 예 #4</h4>
+    <p>
+      예제 4번에서 is_prefix가 my_string의 접두사가 아니기 때문에 0을 return
+      합니다.
+    </p>
+
+    <hr />
+    <h3>startsWith()</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      접미사인지 알려주는 endWidth()가 있듯, 접두사인지 알려주는 startsWith()도
+      있다!
+    </p>
+
+    <script>
+      // 접두사인지 확인하기
+      function solution(my_strings, is_prfix) {
+        return Number(my_strings.startsWith(is_prfix));
+      }
+      console.log(solution("banana", "ban"));
+      console.log(solution("banana", "nan"));
+      console.log(solution("banana", "abcd"));
+      console.log(solution("banana", "bananan"));
+    </script>
+  </body>
+</html>
