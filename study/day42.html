@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>연속된 수의 합</h1>
+    <h2>연속된 수의 합</h2>
+    <h3>문제 설명</h3>
+    <p>
+      연속된 세 개의 정수를 더해 12가 되는 경우는 3, 4, 5입니다.<br />
+      두 정수 num과 total이 주어집니다. <br />
+      연속된 수 num개를 더한 값이 total이 될 때, 정수 배열을 오름차순으로 담아
+      return하도록 solution함수를 완성해보세요.
+    </p>
+    <h3>제한사항</h3>
+    <p>
+      1 ≤ num ≤ 100<br />
+      0 ≤ total ≤ 1000<br />
+      num개의 연속된 수를 더하여 total이 될 수 없는 테스트 케이스는 없습니다.<br />
+    </p>
+    <h3>입출력 예</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>num</th>
+          <th>total</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3</td>
+          <td>12</td>
+          <td>[3, 4, 5]</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>15</td>
+          <td>[1, 2, 3, 4, 5]</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>14</td>
+          <td>[2, 3, 4, 5]</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>5</td>
+          <td>[-1, 0, 1, 2, 3]</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>입출력 예 설명</h4>
+    <h4>입출력 예 #1</h4>
+    <p>num = 3, total = 12인 경우 [3, 4, 5]를 return합니다.</p>
+
+    <h4>입출력 예 #2</h4>
+    <p>num = 5, total = 15인 경우 [1, 2, 3, 4, 5]를 return합니다.</p>
+
+    <h4>입출력 예 #3</h4>
+    <p>4개의 연속된 수를 더해 14가 되는 경우는 2, 3, 4, 5입니다.</p>
+
+    <hr />
+    <h3>Math.floor</h3>
+    <p>
+      <b>오늘의 깨달음</b><br />
+      <br />
+      Math.floor : 버림 <br />
+      Math.ceil : 올림 <br />
+      Math.round : 반올림 <br />
+
+      일단 짝홀수 나누어서, 중간값 구한 이후 문제 풀었는데, <br />
+      좀 결과를 정해놓고 풀이를 하느 느낌이라, 더 간단한 방법이 있을까 고민중
+    </p>
+
+    <script>
+      // 연속된 수의 합
+      function solution(num, total) {
+        let result = [];
+        let middle = Math.floor(total / num);
+        let startNum;
+
+        num % 2 !== 0
+          ? (startNum = middle - Math.floor(num / 2))
+          : (startNum = middle - Math.floor(num / 2) + 1);
+
+        for (i = 0; i < num; i++) {
+          result.push(startNum + i);
+        }
+
+        return result;
+      }
+      console.log(solution(3, 12));
+      console.log(solution(5, 15));
+      console.log(solution(4, 14));
+      console.log(solution(5, 5));
+    </script>
+  </body>
+</html>
